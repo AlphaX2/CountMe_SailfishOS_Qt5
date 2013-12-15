@@ -1,0 +1,8 @@
+%dir /usr/lib/debug
+%dir /usr/lib/debug/.build-id
+%dir /usr/lib/debug/.build-id/c2
+%dir /usr/lib/debug/usr
+%dir /usr/lib/debug/usr/bin
+/usr/lib/debug/.build-id/c2/8a028553389823e41f2e1f962b0deac72cc30f
+/usr/lib/debug/.build-id/c2/8a028553389823e41f2e1f962b0deac72cc30f.debug
+/usr/lib/debug/usr/bin/harbour-countme.debug

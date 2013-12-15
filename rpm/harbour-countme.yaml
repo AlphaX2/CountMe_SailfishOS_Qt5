@@ -1,0 +1,29 @@
+Name: harbour-countme
+Summary: Little, but cute counting app with native Sailfish OS look and feel.
+Version: 1.0
+Release: 1
+Group: Qt/Qt
+License: GPL3
+Sources:
+- '%{name}-%{version}.tar.bz2'
+Description: |
+  Just a little but cute basic application to count, whenever you need to count whatever. Supports counting up and down, feedback sounds and native Sailfish OS cover actions.
+Configure: none
+Builder: qtc5
+PkgConfigBR:
+- sailfishapp
+- Qt5Quick
+- Qt5Qml
+- Qt5Core
+Requires:
+- sailfishsilica-qt5
+Files:
+- '%{_bindir}'
+- '%{_datadir}/%{name}/qml'
+- '%{_datadir}/applications/%{name}.desktop'
+- '%{_datadir}/icons/hicolor/86x86/apps/%{name}.png'
+- /usr/bin
+- /usr/share/harbour-countme
+- /usr/share/applications
+- /usr/share/icons/hicolor/86x86/apps
+PkgBR: []
