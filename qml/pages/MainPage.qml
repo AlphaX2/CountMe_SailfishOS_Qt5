@@ -35,10 +35,14 @@ import "../components"
 
 
 Page {
-    id: page
+    id: doublePage
 
-    property string count_sign: "+"
-    property int count: 0
+    property string countSignLeft: "+"
+    property string countSignRight: "+"
+
+    property int countLeft: 0
+    property int countRight: 0
+
     property bool sound: true
     property bool vibra: true
 
@@ -73,77 +77,192 @@ Page {
             id: column
 
             spacing: Theme.paddingMedium
-            width: page.width
+            width: doublePage.width
 
             PageHeader {
                 title: "CountMe"
             }
-            Label {
-                id: counter
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingLarge
-
-                text: count
-                font.family: "Source Sans Pro Light"
-                font.pixelSize: Theme.fontSizeHuge
-                color: Theme.primaryColor
+            Row {
+                height: Theme.paddingMedium
+                width: doublePage.width
             }
-//            Separator {
-//                width: parent.width
-//                color: Theme.highlightColor
-//                rotation: 180
-//            }
-            Rectangle {
-                id: countClickAreaMinus
-                anchors.horizontalCenter: parent.horizontalCenter
+            Row {
+                width: parent.width
+                height: counterLeft.height
+                Rectangle {
+                    width: parent.width / 2
+                    x: 0
+                    Label {
+                        id: counterLeft
+                        anchors.centerIn: parent
+                        anchors.rightMargin: Theme.paddingLarge
 
-                height: page.width / 3
-                width: page.width / 3
-                radius: width / 2
-
-                border.width: 2
-                border.color: Theme.secondaryHighlightColor
-                color: clickAreaMinus.pressed ? Theme.secondaryHighlightColor : "transparent"
-
-                Image {
-                    anchors.centerIn: countClickAreaMinus
-                    source: "image://theme/icon-m-remove"
-                }
-
-                MouseArea {
-                    id: clickAreaMinus
-                    anchors.fill: countClickAreaMinus
-                    onClicked: {
-                        if(sound){soundEffect.play()}
-                        if(count > -999999){count -= 1}
+                        text: countLeft
+                        font.family: "Source Sans Pro Light"
+                        font.pixelSize: Theme.fontSizeHuge
+                        color: Theme.primaryColor
                     }
                 }
+                Rectangle {
+                    width: parent.width / 2
+                    x: parent.width / 2
+                    Label {
+                        id: counterRight
+                        anchors.centerIn: parent
+                        anchors.rightMargin: Theme.paddingLarge
+
+                        text: countRight
+                        font.family: "Source Sans Pro Light"
+                        font.pixelSize: Theme.fontSizeHuge
+                        color: Theme.primaryColor
+                    }
+                }
+            }
+            //            Separator {
+            //                width: parent.width
+            //                color: Theme.highlightColor
+            //                rotation: 180
+            //            }
+            Row {
+                width: parent.width
+                height: clickAreaMinusLeft.height
+                Rectangle {
+                    width: parent.width / 2
+                    x: 0
+                    Rectangle {
+                        id: countClickAreaMinusLeft
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        height: doublePage.width / 3
+                        width: doublePage.width / 3
+                        radius: width / 2
+
+                        border.width: 2
+                        border.color: Theme.secondaryHighlightColor
+                        color: clickAreaMinusLeft.pressed ? Theme.secondaryHighlightColor : "transparent"
+
+                        Image {
+                            anchors.centerIn: countClickAreaMinusLeft
+                            source: "image://theme/icon-m-remove"
+                        }
+
+                        MouseArea {
+                            id: clickAreaMinusLeft
+                            anchors.fill: countClickAreaMinusLeft
+                            onClicked: {
+                                if(sound){soundEffect.play()}
+                                if(countLeft > -999999){countLeft -= 1}
+//                                countSignLeft = "-"
+                            }
+                        }
+                    }
+                }
+                Rectangle {
+                    width: parent.width / 2
+                    x: parent.width / 2
+                    Rectangle {
+                        id: countClickAreaMinusRight
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        height: doublePage.width / 3
+                        width: doublePage.width / 3
+                        radius: width / 2
+
+                        border.width: 2
+                        border.color: Theme.secondaryHighlightColor
+                        color: clickAreaMinusRight.pressed ? Theme.secondaryHighlightColor : "transparent"
+
+                        Image {
+                            anchors.centerIn: countClickAreaMinusRight
+                            source: "image://theme/icon-m-remove"
+                        }
+
+                        MouseArea {
+                            id: clickAreaMinusRight
+                            anchors.fill: countClickAreaMinusRight
+                            onClicked: {
+                                if(sound){soundEffect.play()}
+                                if(countRight > -999999){countRight -= 1}
+//                                countSignRight = "-"
+                            }
+                        }
+                    }
+                }
+            }
+            Row {
+                height: Theme.paddingMedium
+                width: doublePage.width
             }
             MidSeparator {
                 width: parent.width
             }
-            Rectangle {
-                id: countClickAreaPlus
-                anchors.horizontalCenter: parent.horizontalCenter
+            Row {
+                height: Theme.paddingMedium
+                width: doublePage.width
+            }
+            Row {
+                width: parent.width
+                height: clickAreaPlusLeft.height
+                Rectangle {
+                    width: parent.width / 2
+                    x: 0
+                    Rectangle {
+                        id: countClickAreaPlusLeft
+                        anchors.horizontalCenter: parent.horizontalCenter
 
-                height: page.width / 2
-                width: page.width / 2
-                radius: width / 2
+                        height: doublePage.width / 2.2
+                        width: doublePage.width / 2.2
+                        radius: width / 2
 
-                border.width: 2
-                border.color: Theme.secondaryHighlightColor
-                color: clickAreaPlus.pressed ? Theme.secondaryHighlightColor : "transparent"
+                        border.width: 2
+                        border.color: Theme.secondaryHighlightColor
+                        color: clickAreaPlusLeft.pressed ? Theme.secondaryHighlightColor : "transparent"
 
-                Image {
-                    anchors.centerIn: countClickAreaPlus
-                    source: "image://theme/icon-l-add"
+                        Image {
+                            anchors.centerIn: countClickAreaPlusLeft
+                            source: "image://theme/icon-l-add"
+                        }
+
+                        MouseArea {
+                            id: clickAreaPlusLeft
+                            anchors.fill: countClickAreaPlusLeft
+                            onClicked: {
+                                if(sound){soundEffect.play()}
+                                if(countLeft < 999999){countLeft += 1}
+                                countSignLeft = "+"
+                            }
+                        }
+                    }
                 }
-                MouseArea {
-                    id: clickAreaPlus
-                    anchors.fill: countClickAreaPlus
-                    onClicked: {
-                        if(sound){soundEffect.play()}
-                        if(count <= 999999){count += 1}
+                Rectangle {
+                    width: parent.width / 2
+                    x: parent.width / 2
+                    Rectangle {
+                        id: countClickAreaPlusRight
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        height: doublePage.width / 2.2
+                        width: doublePage.width / 2.2
+                        radius: width / 2
+
+                        border.width: 2
+                        border.color: Theme.secondaryHighlightColor
+                        color: clickAreaPlusRight.pressed ? Theme.secondaryHighlightColor : "transparent"
+
+                        Image {
+                            anchors.centerIn: countClickAreaPlusRight
+                            source: "image://theme/icon-l-add"
+                        }
+
+                        MouseArea {
+                            id: clickAreaPlusRight
+                            anchors.fill: countClickAreaPlusRight
+                            onClicked: {
+                                if(sound){soundEffect.play()}
+                                if(countRight < 999999){countRight += 1}
+                                countSignRight = "+"
+                            }
+                        }
                     }
                 }
             }

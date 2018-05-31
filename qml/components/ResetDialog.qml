@@ -5,12 +5,21 @@ Dialog {
     anchors.fill: parent
 
     DialogHeader {
+        id: header
         acceptText: "Reset"
     }
     Label {
-        anchors.centerIn: parent
-        text: "Do you want to reset your counter?"
-        font.pixelSize: Theme.fontSizeMedium
+        anchors.top: header.bottom
+        x: Theme.paddingLarge
+        width: parent.width - 2*Theme.paddingLarge
+        wrapMode: Text.WordWrap
+        text: "Do you want to reset your counters?"
+        font.pixelSize: Theme.fontSizeLarge
     }
-    onAccepted: {mainPage.count = 0; mainPage.count_sign = "+"}
+    onAccepted: {
+        mainPage.countLeft = 0
+        mainPage.countRight = 0
+        mainPage.countSignLeft = "+"
+        mainPage.countSignRight = "+"
+    }
 }
