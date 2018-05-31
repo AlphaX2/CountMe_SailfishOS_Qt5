@@ -16,21 +16,21 @@ Dialog {
 
         Label {
             x: Theme.paddingMedium
-            text: "Autor:"
+            text: "Autors:"
             color: Theme.highlightColor
 
             font.pixelSize: Theme.fontSizeMedium
         }
         Label {
             x: Theme.paddingLarge
-            text: "Gabriel Böhme"
+            text: "Gabriel Böhme\nMatti Viljanen"
             color: Theme.primaryColor
 
             font.pixelSize: Theme.fontSizeSmall
         }
         Label {
             x: Theme.paddingMedium
-            text: "Kontakt:"
+            text: "Contact:"
             color: Theme.highlightColor
 
             font.pixelSize: Theme.fontSizeMedium
@@ -44,7 +44,7 @@ Dialog {
         }
         Label {
             x: Theme.paddingMedium
-            text: "Lizenz:"
+            text: "License:"
             color: Theme.highlightColor
 
             font.pixelSize: Theme.fontSizeMedium
