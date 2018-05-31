@@ -6,7 +6,7 @@ Dialog {
 
     DialogHeader {
         id: header
-        title: "Go back"
+        title: "CountMe 2.0"
     }
 
     Column {
@@ -16,59 +16,45 @@ Dialog {
 
         Label {
             x: Theme.paddingMedium
-            text: "Autors:"
+            text: "Authors:"
             color: Theme.highlightColor
 
-            font.pixelSize: Theme.fontSizeMedium
+            font.pixelSize: Theme.fontSizeLarge
         }
         Label {
             x: Theme.paddingLarge
             text: "Gabriel Böhme\nMatti Viljanen"
             color: Theme.primaryColor
 
-            font.pixelSize: Theme.fontSizeSmall
+            font.pixelSize: Theme.fontSizeMedium
         }
         Label {
             x: Theme.paddingMedium
             text: "Contact:"
             color: Theme.highlightColor
 
-            font.pixelSize: Theme.fontSizeMedium
+            font.pixelSize: Theme.fontSizeLarge
         }
         Label {
             x: Theme.paddingLarge
             text: "m.gabrielboehme@googlemail.com"
             color: Theme.primaryColor
 
-            font.pixelSize: Theme.fontSizeSmall
+            font.pixelSize: Theme.fontSizeMedium
         }
         Label {
             x: Theme.paddingMedium
             text: "License:"
             color: Theme.highlightColor
 
-            font.pixelSize: Theme.fontSizeMedium
+            font.pixelSize: Theme.fontSizeLarge
         }
         Label {
             x: Theme.paddingLarge
             text: "GNU General Public Licence 3.0"
             color: Theme.primaryColor
 
-            font.pixelSize: Theme.fontSizeSmall
-        }
-        Label {
-            x: Theme.paddingMedium
-            text: "Version:"
-            color: Theme.highlightColor
-
             font.pixelSize: Theme.fontSizeMedium
-        }
-        Label {
-            x: Theme.paddingLarge
-            text: "2.0"
-            color: Theme.primaryColor
-
-            font.pixelSize: Theme.fontSizeSmall
         }
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
