@@ -37,26 +37,38 @@ CoverBackground {
         title: "CountMe"
     }
     Image {
+        width: parent.width / 3
+        height: parent.width / 3
         anchors.right: parent.left
-        anchors.rightMargin: -(width/1.8)
-        anchors.top: parent.top
-        anchors.topMargin: 15
+        anchors.rightMargin: -(width*0.75)
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: width
         source: "image://theme/icon-l-add"
-        opacity: 0.8
+        opacity: 0.5
     }
     Image {
-        anchors.right: parent.right
-        anchors.rightMargin: 10
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 55
+        width: parent.width / 3.5
+        height: parent.width / 3.5
+        anchors.left: parent.right
+        anchors.leftMargin: -(width*0.75)
+        anchors.top: parent.top
+        anchors.topMargin: width*1.5
         source: "image://theme/icon-m-remove"
-        opacity: 0.85
+        opacity: 0.5
     }
 
     Label {
-        id: countLabel
+        id: countLabelLeft
         anchors.centerIn: parent
-        text: mainPage.count
+        text: mainPage.countLeft + "\n"
+        font.pixelSize: Theme.fontSizeHuge
+        font.family: "Source Sans Pro Light"
+    }
+
+    Label {
+        id: countLabelRight
+        anchors.centerIn: parent
+        text: "\n" + mainPage.countRight
         font.pixelSize: Theme.fontSizeHuge
         font.family: "Source Sans Pro Light"
     }
@@ -65,18 +77,13 @@ CoverBackground {
         id: coverAction
 
         CoverAction {
-            iconSource: "image://theme/icon-cover-refresh"
-            onTriggered: {
-                mainPage.count = 0
-                mainPage.count_sign = "+"
-            }
+            iconSource: "image://theme/icon-cover-new"
+            onTriggered: { mainPage.countSignLeft === "+" ? mainPage.countLeft += 1 : mainPage.countLeft -= 1 }
         }
 
         CoverAction {
             iconSource: "image://theme/icon-cover-new"
-            onTriggered: {
-                mainPage.count_sign === "+" ? mainPage.count += 1 : mainPage.count -= 1
-            }
+            onTriggered: { mainPage.countSignRight === "+" ? mainPage.countRight += 1 : mainPage.countRight -= 1 }
         }
     }
 }
