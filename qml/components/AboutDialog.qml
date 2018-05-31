@@ -65,7 +65,7 @@ Dialog {
         }
         Label {
             x: Theme.paddingLarge
-            text: "1.0.0"
+            text: "2.0"
             color: Theme.primaryColor
 
             font.pixelSize: Theme.fontSizeSmall
